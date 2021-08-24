@@ -1,0 +1,17 @@
+/**
+ * Tester Class for CaesarShiftEncryption
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin Gali
+ * @3/19/2021
+ */
+ 
+import java.util.*;
+public class CaesarShiftTester
+{
+    public static void main(String []args) throws Exception
+    {
+        CaesarShiftEncryption test = new CaesarShiftEncryption();
+        test.Output();
+    }
+}
