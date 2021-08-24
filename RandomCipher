@@ -1,0 +1,51 @@
+/**
+ * Generate a random "alphabet" based upon a randomly generated "shift" value, as well as use the alphabet to encrypt a message.
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin Gali
+ * @3/22/2021
+ */
+ 
+import java.util.*;
+import java.io.*;
+public class RandCipher
+{
+    public RandCipher()
+    {
+    }
+
+    public static char[] createCipher()
+    {
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+            'z'};
+        Random generate = new Random();
+        for (int i = 0; i <alphabet.length; i++ )
+        {
+            int i2 = generate.nextInt(alphabet.length);
+            char thing = alphabet[i];
+            alphabet[i] = alphabet[i2];
+            alphabet[i2] = thing;
+        }
+        return alphabet;
+    }
+    
+    public static String encrypt (char[] cipherAlphabet, String message){
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+            'z'};
+            
+        String cipher = "";
+        for(int i = 0; i<message.length(); i++)
+        {
+            for(int j = 0; j<cipherAlphabet.length; j++)
+            {
+                if(message.charAt(i) == alphabet[j])
+                {
+                    cipher += cipherAlphabet[j];
+                }
+            }
+        }
+        return cipher;
+    } 
+}
