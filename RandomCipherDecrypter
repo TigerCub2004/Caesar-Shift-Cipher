@@ -1,0 +1,34 @@
+/**
+ * Decrypts a message encrypted with a randomly generated language.
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin Gali
+ * @3/22/2021
+ */
+ 
+import java.util.*;
+import java.io.*;
+public class RandDecipher
+{
+    public RandDecipher()
+    {
+    }
+
+    public static String decrypt (char[] cipherAlphabet, String cipher){
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+            'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+            'z'};
+        String english = "";
+        for(int i = 0; i<cipher.length(); i++)
+        {
+            for(int j = 0; j<cipherAlphabet.length; j++)
+            {
+                if(cipher.charAt(i) == cipherAlphabet[j])
+                {
+                    english += alphabet[j];
+                }
+            }
+        } 
+        return english; 
+    }
+}
