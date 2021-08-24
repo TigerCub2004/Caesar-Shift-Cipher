@@ -1,0 +1,43 @@
+/**
+ * Tester class for RandCipher and RandDecipher classes that accepts a user inputed message and encrypts it, then decrpyts, all while preserving the encryption to a .txt file.
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin Gali
+ * @3/22/2021
+ */
+ 
+import java.util.*;
+import java.io.*;
+public class CipherTester
+{
+    public static void cipherResults() throws Exception{
+        RandCipher encryption = new RandCipher();
+        RandDecipher decryption = new RandDecipher();
+        
+        char[] alphabet = encryption.createCipher();
+        
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter a message (no punctuation): ");
+        String message = (in.next()).toLowerCase();
+        System.out.println();
+        System.out.print("Encrypted cipher:" );
+        System.out.println(encryption.encrypt(alphabet, message));
+        
+        File file = new File("cipherText.txt");
+        FileWriter writer = new FileWriter("cipherText.txt");
+        writer.write(encryption.encrypt(alphabet, message));
+        writer.close();
+        
+        Scanner reader = new Scanner(file);
+        String cipher = reader.next();
+        reader.close();
+        System.out.println();
+        System.out.print("Original message:" );
+        System.out.println(decryption.decrypt(alphabet,cipher));
+    }
+    
+    public static void main(String []args) throws Exception
+    {
+        cipherResults();
+    }
+}
